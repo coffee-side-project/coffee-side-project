@@ -1,3 +1,4 @@
+import { KakaoReadyResponseType } from "@/types/kakaoTypes";
 import axios from "axios";
 
 export const postDataToKakaoPay = async () => {
@@ -9,14 +10,13 @@ export const postDataToKakaoPay = async () => {
     quantity: 1,
     total_amount: 2200,
     tax_free_amount: 0,
-    approval_url: "http://localhost:3000/approvePage",
+    approval_url: "http://localhost:3000",
     fail_url: "http://localhost:3000",
     cancel_url: "http://localhost:3000",
   };
 
   try {
-    const response = await axios.post("/payment", data);
-    console.log("response", response.data);
+    const response = await axios.post<KakaoReadyResponseType>("/api/kakao", data);
     return response;
   } catch (error) {
     console.log("error", error);

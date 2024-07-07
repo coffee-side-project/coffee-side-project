@@ -6,12 +6,10 @@ const queryClient = new QueryClient();
 
 const Providers = ({ children }: PropsWithChildren) => {
   return (
-    <div>
-      <QueryClientProvider client={queryClient}>
-        {children}
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 };
 
