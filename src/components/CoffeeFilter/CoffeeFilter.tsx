@@ -21,17 +21,17 @@ function CoffeeFilter() {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    <div className="min-w-40 w-60">
-      <h1 className="text-xl font-semibold m-4 h-10 text-filterText border-b-2  border-b-filterBorder">
-        모든 커피
+    <div className="min-w-40 w-60 ">
+      <h1 className="text-xl font-semibold  mr-4 h-10 text-filterText border-b-2  border-b-filterBorder">
+        커피 찾기
       </h1>
       <ul className="">
-        <li className="flex justify-between items-center m-4 h-10  text-filterText border-b-2 border-b-filterBorder ">
+        <li className="flex justify-between items-center mt-4 mr-4 h-10  text-filterText border-b-2 border-b-filterBorder ">
           <p>디카페인</p>
           <input type="checkbox" />
         </li>
         <li
-          className={`m-4 ${
+          className={`mt-4 mr-4 ${
             isClicked ? "" : "h-10"
           } text-filterText border-b-2 border-b-filterBorder`}
         >
