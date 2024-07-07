@@ -1,17 +1,27 @@
 import supabase from "@/supabase/supabase";
-import axios from "axios";
 
 const LIMIT = 10;
 
-export const getPagenatedProductsWithSupabase = async (page:number, limit:number = LIMIT) => {
-  const { data: products, error } = await supabase
+export const getPagenatedProducts = async (page:number, limit:number = LIMIT) => {
+
+  if(!page || !limit) return ({error: "query is empty", data:null, nextPage:null});
+
+  const { data, error } = await supabase
   .from('products')
   .select('*')
   .range((page-1)*limit, page*limit);
-  return products;
-}
 
-export const getPagenatedProducts = async(page:number, limit:number) => {
-  const response = await axios.get(`http://localhost:3000/api/products?page=${page}&limit=${limit}`)
-  return response.data;
+  if(error) ({error, data: null, nextPage: null})
+
+  if(data === null || data.length < 1) return ({error: "data is empty", data: null, nextPage: null});
+  
+  if(data.length > limit) {
+    // 다음 페이지가 있다는 뜻.
+    const response = data.slice(0, limit);
+    const nextPage = page + 1;
+    return ({error:null, data: response, nextPage});    
+  } else {
+    // 다음 페이지가 없다는 뜻.
+    return ({error: null, data, nextPage:null});
+  }
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kwakori/supabase-pagenation": "^1.0.5",
     "@supabase/supabase-js": "^2.44.2",
     "@tanstack/react-query": "^5.49.0",
     "@tanstack/react-query-devtools": "^5.49.0",
@@ -18,7 +19,6 @@
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "supapagenation": "^0.0.2",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
