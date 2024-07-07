@@ -1,7 +1,7 @@
-import CoffeList from "@/components/CoffeeList/CoffeList";
+import CoffeeFilter from "@/components/CoffeeFilter";
 
 const HomePage = async () => {
-  return <CoffeList />;
+  return <CoffeeFilter />;
 };
 
 export default HomePage;

@@ -4,6 +4,11 @@ import { Database } from "@/types/supabase";
 import { useQuery } from "@tanstack/react-query";
 import CoffeeCard from "../CoffeeCard";
 
+/**
+ * @param {ceffees } 커피 데이터들이 들어와야함
+ *
+ */
+
 function CoffeList() {
   const { data: coffees } = useQuery<Database>({
     queryKey: ["coffees"],
